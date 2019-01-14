@@ -12,8 +12,8 @@ parser = argparse.ArgumentParser(
 )
 
 parser.add_argument('-k', '--key', help='Key to find', type=str)
-parser.add_argument('-i', '--input', help='Input file', dest='file')
-parser.add_argument('-o', '--output', help='Output file (optional)', dest='file')
+parser.add_argument('-i', '--input', help='Input file')
+parser.add_argument('-o', '--output', help='Output file (optional)')
 
 description = r"""
  _   __          ______ _           _
