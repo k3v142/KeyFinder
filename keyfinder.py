@@ -5,6 +5,7 @@ import json
 import sys
 import os.path
 import argparse
+import ijson
 
 
 parser = argparse.ArgumentParser(
@@ -56,9 +57,6 @@ def get_values(key, d):
 
 if os.path.isfile(INPUT):
     with open(INPUT, 'r') as f:
-        try:
-            d = json.load(f)
-        except Exception as e:
-            print('Bad JSON file. {}'.format(str(e)))
-            exit(1)
-    get_values(KEY, d)
+        objects = ijson.items(f, 'item')
+        for item in objects:
+            get_values(KEY, item)
